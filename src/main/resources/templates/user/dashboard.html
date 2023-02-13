@@ -1,0 +1,26 @@
+<!--user/dashboard.html-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>User Dashboard</title>
+</head>
+<body>
+<h2>Welcome to User Dashboard</h2>
+<p>Logged as: <span sec:authentication="name"></span></p>
+<p>Has role: <span  sec:authentication="authorities"></span></p>
+
+<div>
+  <p><a th:href="@{/}">Home</a></p>
+  <div class="container mt-5 mb - 5">
+    <h1>Добавление объявлений</h1>
+    <form action="add" method="post">
+      <input type="text" name="title" placeholder="Введите название предмета лота" class="form-control"><br>
+      <input type="text" name="anons" placeholder="Введите количество" class="form-control"><br>
+      <textarea type="text" name="full_text" placeholder="Введите полное описание лота" class="form-control"></textarea><br>
+      <button type="submit" class="btn btn-success">Добавить объявление</button>
+    </form>
+  </div>
+  <p><a th:href="@{/logout}">Log out</a></p>
+</div>
+</body>
+</html>
